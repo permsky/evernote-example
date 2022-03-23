@@ -33,7 +33,9 @@ def is_valid_date(text):
 
 if __name__ == '__main__':
     load_dotenv()
-    parser = argparse.ArgumentParser(description=u'Adds note to notebook "Дневник", uses template note')
+    parser = argparse.ArgumentParser(
+        description=u'Adds note to notebook "Дневник", uses template note'
+    )
     parser.add_argument('date',
                         nargs='?',
                         type=is_valid_date,

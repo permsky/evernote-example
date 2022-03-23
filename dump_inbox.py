@@ -25,12 +25,14 @@ def get_notebook_list(note_store, notebook_guid, number=10, offset=0):
     )
 
     # this determines which info you'll get for each note
-    return note_store.findNotesMetadata(_filter, offset, number, resultSpec);
+    return note_store.findNotesMetadata(_filter, offset, number, resultSpec)
 
 
 if __name__ == '__main__':
     load_dotenv()
-    parser = argparse.ArgumentParser(description=u'Dumps notes from Evernote inbox to console')
+    parser = argparse.ArgumentParser(
+        description=u'Dumps notes from Evernote inbox to console'
+    )
     parser.add_argument('number',
                         nargs='?',
                         type=int,
@@ -52,6 +54,7 @@ if __name__ == '__main__':
     
     for counter, note in enumerate(notes, start=1):
         print('\n--------- %s ---------' % counter)
-        content = note_store.getNoteContent(note.guid)  # kwargs will be skipped by api because of bug
+        # kwargs will be skipped by api because of bug
+        content = note_store.getNoteContent(note.guid)
         soup = BeautifulSoup(content, "html.parser")
         print(soup.get_text())
