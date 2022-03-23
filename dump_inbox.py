@@ -49,8 +49,6 @@ if __name__ == '__main__':
         os.getenv('INBOX_NOTEBOOK_GUID'),
         args.number
     ).notes
-
-    # print('Notes', notes)
     
     for counter, note in enumerate(notes, start=1):
         print('\n--------- %s ---------' % counter)
